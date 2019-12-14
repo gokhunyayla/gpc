@@ -1,6 +1,6 @@
-#PHPReady Admin
+#GPC Parent
 
-PHPReady is an end user ready multipurpose website management structure that is created via php, html5, css3, javascript, jquery, ajax, bootstrap web development systems. This admin structure should be used for PHPReady website sturucture.
+GPS Parent is an end user ready multipurpose website management structure that is created via php, html5, css3, javascript, jquery, ajax, bootstrap web development systems. This admin structure should be used for GPC website sturucture.
 
 There is a db and config folder in the repo those you shouldn't upload to your server. The files have the structure of your website.
 
