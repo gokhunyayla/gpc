@@ -1,6 +1,6 @@
-#PHPReady Site
+#GPC Child
 
-PHPReady is an end user ready multipurpose website structure that is created via php, html5, css3, javascript, jquery, ajax, bootstrap web development systems.
+GPC is an end user ready multipurpose website structure that is created via php, html5, css3, javascript, jquery, ajax, bootstrap web development systems.
 
 There is a db and config folder in the repo those you shouldn't upload to your server. The files have the structure of your website.
 
