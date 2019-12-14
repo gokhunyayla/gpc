@@ -1,0 +1,51 @@
+body{font-family: 'Quicksand', sans-serif; font-style: normal; font-size: 1rem; font-weight: 400; line-height: 1.5; color:#1d1d33;}
+a{text-decoration:none !important;}
+footer{color:#aaa !important;}
+footer a{color:#ccc !important;}
+footer h3, footer h6{border-bottom: 1px solid #ccc;}
+footer h3{padding-bottom: 5px;}
+.nav-item{margin:0px 15px;}
+.nav-link{font-weight:700 !important; padding: 0 !important; border-radius: 0; text-decoration: capitalize; position: relative; color:#fff !important; font-weight:500 !important;}
+.footer-link a{font-size:14px;}
+.btn-link-600{font-weight:600 !important;}
+.owl-card-3-image{display:inline-block !important; width: 200px !important;}
+
+#tab .nav-link{color:#495057 !important; padding: 10px !important;}
+
+.form-signin{margin:0px auto; padding: 0px auto; margin-top:10%;}
+.form-signin{width:300px; margin-bottom: 5px;}
+.form-control{margin-bottom: 5px;}
+
+#option-collapse .dropdown-item{color:#fff !important;}
+#option-collapse .dropdown-item:hover{color:#000 !important;}
+
+.main-section{margin:0 auto; padding: 20px; margin-top: 100px; background-color: #fff; box-shadow: 0px 0px 20px #c1c1c1;}
+.fileinput-remove, .fileinput-upload{display: none;}
+
+.file{position: relative; overflow: hidden;}
+.file input{position: absolute; font-size: 14px !important; opacity: 0; right: 0; top: 0;}
+
+@media (max-width: 575.98px)
+{
+	
+}
+
+@media (min-width: 576px) and (max-width: 767.98px)
+{
+	
+}
+
+@media (min-width: 768px) and (max-width: 991.98px)
+{
+	
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px)
+{
+	
+}
+
+@media (min-width: 1200px)
+{
+	
+}
