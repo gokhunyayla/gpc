@@ -4,7 +4,7 @@ GPC is an end user ready multipurpose website structure that is created via php,
 
 There is a db and config folder in the repo those you shouldn't upload to your server. The files have the structure of your website.
 
-To run phpsimple you should have apache and mysql are installed on your pc. 
+To run gpc you should have apache and mysql are installed on your pc. 
 
 How to Install?
 
