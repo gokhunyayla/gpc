@@ -1,4 +1,4 @@
-#GPC Child
+#GPC
 
 GPC is an end user ready multipurpose website structure that is created via php, html5, css3, javascript, jquery, ajax, bootstrap web development systems.
 
