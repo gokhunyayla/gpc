@@ -16,6 +16,9 @@ $array["comment"][]			= array("variable"=>"removed", "name"=>"Silindi");
 $array["comment"][]			= array("variable"=>"not-seen", "name"=>"Okunmadı");
 $array["comment"][]			= array("variable"=>"approved", "name"=>"Onaylandı");
 
+$array["domain"][]			= array("variable"=>"live", "name"=>"Yayında");
+$array["domain"][]			= array("variable"=>"not-live", "name"=>"Yayından Kaldırılmış!");
+
 ?>
 
 <pre><?php print_r(json_encode($array, JSON_UNESCAPED_UNICODE)); ?></pre>

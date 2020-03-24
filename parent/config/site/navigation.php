@@ -1,6 +1,7 @@
 <?php
 $array["developer"][]				= array("category"=>-1, "link-mask"=>"Özet", "link"=>"./", "class"=>"fa fa-dashboard");
 $array["developer"][]				= array("category"=>-1, "link-mask"=>"Ayarlar", "link"=>"#option-collapse", "class"=>"fa fa-cog");
+$array["developer"][]				= array("category"=>1, "link-mask"=>"Site Ayarları", "link"=>"site-ayarları", "class"=>"");
 $array["developer"][]				= array("category"=>1, "link-mask"=>"Doğrulama", "link"=>"doğrulama", "class"=>"");
 $array["developer"][]				= array("category"=>1, "link-mask"=>"Ölçümleme", "link"=>"ölçümleme", "class"=>"");
 $array["developer"][]				= array("category"=>1, "link-mask"=>"Dil Ayarları", "link"=>"dil-ayarları", "class"=>"");

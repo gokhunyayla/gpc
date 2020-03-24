@@ -138,6 +138,28 @@ $array["button-link"]				= "Buton Bağlantısı";
 $array["upload"]					= "Yükle";
 $array["link-cannot-be-found"]		= "Bağlantı Bulunamadı!";
 $array["comment-cannot-be-found"]	= "Yorum Bulunamadı!";
+$array["no-phone-info-is-given"]    = "Telefon bilgisi gönderilmemiş!";
+$array["redirect"]                  = "Yönlendirildiği Yer";
+$array["domain"]                    = "Alan Adı";
+$array["database-settings"]         = "Veritabanı Ayarları";
+$array["ftp-settings"]              = "FTP Ayarları";
+$array["email-settings"]            = "E-Posta Ayarları";
+$array["expire-date"]               = "Bitiş Tarihi";
+$array["there-seems-no-site"]       = "Henüz hiç site eklenmemiş!";
+$array["server"]                    = "Sunucu";
+$array["username"]                  = "Kullanıcı Adı";
+$array["prefix"]                    = "Ön Ek";
+$array["port"]                      = "Port";
+$array["pop3-server"]               = "Pop3 Sunucusu";
+$array["pop3-username"]             = "Pop3 Kullanıcı Adı";
+$array["pop3-password"]             = "Pop3 Kullanıcı Şifresi";
+$array["pop3-port"]                 = "Pop3 Port";
+$array["pop3-secure"]               = "Pop3 Güvenlik Durumu";
+$array["smtp-server"]               = "SMTP Sunucusu";
+$array["smtp-username"]             = "SMTP Kullanıcı Adı";
+$array["smtp-password"]             = "SMTP Kullanıcı Şifresi";
+$array["smtp-port"]                 = "SMTP Port";
+$array["smtp-secure"]               = "SMTP Güvenlik Durumu";
 
 ?>
 

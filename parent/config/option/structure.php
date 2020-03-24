@@ -12,6 +12,8 @@ $array["contact-add-check"]			= array("contact-add-check");
 $array["blog-look"]					= array("blog-look");
 $array["portfolio-look"]			= array("portfolio-look");
 $array["comment-add-check"]			= array("comment-add-check");
+$array["work-list"]			        = array("work-list");
+
 ?>
 
 <pre><?php print_r(json_encode($array, JSON_UNESCAPED_UNICODE)); ?></pre>
