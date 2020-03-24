@@ -1,12 +1,12 @@
 <?php
-$array["link-mask"]						= "Slider Güncelle";
-$array["structure"]						= array("slider-edit-check");
-$array["head"]["title"]					= "Slider Güncelle";
+$array["link-mask"]						= "Site Düzenle";
+$array["structure"]						= array("site-edit");
+$array["head"]["title"]					= "Site Düzenle";
 $array["head"]["meta-description"]		= "Bu sayfanın açıklamasıdır. - en fazla 160 karakter olmalıdır.";
 $array["head"]["meta-keywords"]			= "web, tasarım, kodlama, yazılım";
 $array["head"]["meta-author"]			= "Ori Katalog";
 $array["head"]["link-canonical"]		= "./";
-$array["body"]["text"]["title"]			= "Slider Güncelle";
+$array["body"]["text"]["title"]			= "Site Düzenle";
 $array["body"]["text"]["summary"]		= "Sayfa Özet Metnidir en fazla 200 karakter olmalıdır.";
 $array["body"]["text"]["detail"]		= "Sayfanın detaylı açıklamasıdır. İsterseniz HTML kod gömebilirsiniz.";
 $array["body"]["image"]					= array();
