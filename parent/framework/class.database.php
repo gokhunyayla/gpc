@@ -244,7 +244,73 @@ class database extends PDO
 		
 		return $return;
 	}
+
+	public function sfi($var0)
+	{
+		$this->open();
 	
+		$return=$this->connection->query("select * from ".$this->prefix."site where ".$this->prefix."id=".$var0."");
+		
+		if ($return->rowCount()>0)
+		{
+			$return=$return->fetchAll(PDO::FETCH_ASSOC);
+			$return=$this->fix($return); $return=$return[0];
+		}
+		else
+		{
+			$return=-1;
+		}
+	
+		$this->close();
+		
+		return $return;
+	}
+
+	public function sl()
+	{
+		$this->open();
+	
+		$return=$this->connection->query("select * from ".$this->prefix."site where ".$this->prefix."status<>'removed'");
+		
+		if ($return->rowCount()>0)
+		{
+			$return=$return->fetchAll(PDO::FETCH_ASSOC);
+			$return=$this->fix($return);
+		}
+		else
+		{
+			$return=-1;
+		}
+	
+		$this->close();
+		
+		return $return;
+	}
+
+	public function si($var0)
+	{
+		$this->open();
+		$return=$this->connection->prepare("insert into ".$this->prefix."site set $var0")->execute();
+		$this->close();
+		return $return;
+	}
+
+	public function su($var0)
+	{
+		$this->open();
+		$return=$this->connection->prepare("update ".$this->prefix."site set $var0")->execute();
+		$this->close();
+		return $return;
+	}
+	
+	public function sd($var0)
+	{
+		$this->open();
+		$return=$this->connection->prepare("delete from ".$this->prefix."site where $var0")->execute();
+		$this->close();
+		return $return;
+	}
+
 	public function cs($var0=NULL)
 	{
 		$this->open();
