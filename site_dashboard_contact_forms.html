@@ -1,0 +1,112 @@
+                        <!-- İletişim Formu Gönderileri Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-contact-forms" role="tabpanel" aria-labelledby="sitedash-contact-forms-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>İletişim Formu Gönderileri</h4>
+                                <!-- Belki filtreleme veya dışa aktarma eklenebilir -->
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenizdeki iletişim formları aracılığıyla gönderilen mesajları görüntüleyebilir ve yönetebilirsiniz. Bu arayüz kavramsal olup, gerçek form gönderi yönetimi backend entegrasyonu gerektirecektir.</small></p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th><input class="form-check-input" type="checkbox" value="" id="selectAllContactSubmissions"></th>
+                                                    <th>Gönderen</th>
+                                                    <th>E-posta</th>
+                                                    <th>Konu</th>
+                                                    <th>Tarih</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="contactSubmission1"></td>
+                                                    <td>Zeynep Çelik</td>
+                                                    <td>zeynep.celik@example.com</td>
+                                                    <td>Bilgi Talebi</td>
+                                                    <td>13 Mayıs 2025, 10:15</td>
+                                                    <td><span class="badge bg-warning text-dark">Okunmadı</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Görüntüle" data-bs-toggle="modal" data-bs-target="#viewContactSubmissionModal" data-id="1"><i class="fas fa-eye"></i></button>
+                                                        <button class="btn btn-sm btn-success me-1" title="Okundu Olarak İşaretle"><i class="fas fa-check-circle"></i></button>
+                                                        <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="contactSubmission2"></td>
+                                                    <td>Ahmet Öztürk</td>
+                                                    <td>ahmet.ozturk@example.com</td>
+                                                    <td>İş Birliği Teklifi</td>
+                                                    <td>12 Mayıs 2025, 17:40</td>
+                                                    <td><span class="badge bg-primary">Okundu</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Görüntüle" data-bs-toggle="modal" data-bs-target="#viewContactSubmissionModal" data-id="2"><i class="fas fa-eye"></i></button>
+                                                        <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="form-check-input" type="checkbox" value="" id="contactSubmission3"></td>
+                                                    <td>Elif Demir</td>
+                                                    <td>elif.demir@example.com</td>
+                                                    <td>Destek Talebi</td>
+                                                    <td>11 Mayıs 2025, 09:00</td>
+                                                    <td><span class="badge bg-info">Yanıtlandı</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Görüntüle" data-bs-toggle="modal" data-bs-target="#viewContactSubmissionModal" data-id="3"><i class="fas fa-eye"></i></button>
+                                                        <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="btn btn-sm btn-outline-danger" id="deleteSelectedContactSubmissions" disabled><i class="fas fa-trash me-1"></i> Seçilenleri Sil</button>
+                                        <button class="btn btn-sm btn-outline-success ms-2" id="markSelectedContactSubmissionsRead" disabled><i class="fas fa-check-circle me-1"></i> Seçilenleri Okundu İşaretle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- View Contact Submission Modal -->
+                        <div class="modal fade" id="viewContactSubmissionModal" tabindex="-1" aria-labelledby="viewContactSubmissionModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="viewContactSubmissionModalLabel">İletişim Formu Mesajı</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Gönderen:</strong> <span id="contactSenderName">Zeynep Çelik</span></p>
+                                        <p><strong>E-posta:</strong> <span id="contactSenderEmail">zeynep.celik@example.com</span></p>
+                                        <p><strong>Telefon (varsa):</strong> <span id="contactSenderPhone">-</span></p>
+                                        <p><strong>Konu:</strong> <span id="contactSubject">Bilgi Talebi</span></p>
+                                        <p><strong>Gönderim Tarihi:</strong> <span id="contactSubmissionDate">13 Mayıs 2025, 10:15</span></p>
+                                        <hr>
+                                        <h6>Mesaj İçeriği:</h6>
+                                        <div id="contactMessageContent" style="white-space: pre-wrap; background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+Merhaba,
+
+Sunduğunuz hizmetler hakkında daha detaylı bilgi almak istiyorum. Özellikle X ve Y çözümlerinizle ilgileniyorum.
+
+Teşekkürler,
+Zeynep Çelik
+                                        </div>
+                                        <hr>
+                                        <form id="replyContactSubmissionForm">
+                                            <div class="mb-3">
+                                                <label for="contactReplyMessage" class="form-label">Yanıtınız:</label>
+                                                <textarea class="form-control" id="contactReplyMessage" rows="4" placeholder="Yanıtınızı buraya yazın..."></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-reply me-2"></i>Yanıtla</button>
+                                            <button type="button" class="btn btn-success ms-2"><i class="fas fa-check-circle me-2"></i>Okundu Olarak İşaretle</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

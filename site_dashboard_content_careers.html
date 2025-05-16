@@ -1,0 +1,212 @@
+                        <!-- Kariyer Yönetim Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-careers" role="tabpanel" aria-labelledby="sitedash-careers-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Kariyer İlanı Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addCareerModal">
+                                    <i class="fas fa-briefcase me-2"></i>Yeni Kariyer İlanı Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Pozisyon Adı</th>
+                                                    <th>Departman</th>
+                                                    <th>Lokasyon</th>
+                                                    <th>Tür</th>
+                                                    <th>Son Başvuru</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Kıdemli Frontend Geliştirici</td>
+                                                    <td>Teknoloji</td>
+                                                    <td>İstanbul (Hibrit)</td>
+                                                    <td>Tam Zamanlı</td>
+                                                    <td>30.06.2025</td>
+                                                    <td><span class="badge bg-success">Açık</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editCareerModal" data-career-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Kapat"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pazarlama Uzmanı</td>
+                                                    <td>Pazarlama</td>
+                                                    <td>Ankara (Ofis)</td>
+                                                    <td>Tam Zamanlı</td>
+                                                    <td>15.07.2025</td>
+                                                    <td><span class="badge bg-secondary">Kapalı</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editCareerModal" data-career-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Yeniden Aç"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Career Modal -->
+                        <div class="modal fade" id="addCareerModal" tabindex="-1" aria-labelledby="addCareerModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addCareerModalLabel">Yeni Kariyer İlanı Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addCareerForm">
+                                            <div class="mb-3">
+                                                <label for="addCareerPositionName" class="form-label">Pozisyon Adı</label>
+                                                <input type="text" class="form-control" id="addCareerPositionName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addCareerUrl" class="form-label">İlan URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="addCareerUrl" placeholder="otomatik-oluşturulur-veya-manuel">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addCareerStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="addCareerStatus">
+                                                        <option value="open" selected>Açık (Yayında)</option>
+                                                        <option value="closed">Kapalı (Yayında Değil)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addCareerDepartment" class="form-label">Departman</label>
+                                                    <input type="text" class="form-control" id="addCareerDepartment">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addCareerLocation" class="form-label">Lokasyon</label>
+                                                    <input type="text" class="form-control" id="addCareerLocation" placeholder="Örn: İstanbul (Hibrit)">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addCareerType" class="form-label">Çalışma Türü</label>
+                                                    <select class="form-select" id="addCareerType">
+                                                        <option value="full-time" selected>Tam Zamanlı</option>
+                                                        <option value="part-time">Yarı Zamanlı</option>
+                                                        <option value="contract">Kontratlı</option>
+                                                        <option value="internship">Stajyer</option>
+                                                        <option value="remote">Uzaktan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addCareerDeadline" class="form-label">Son Başvuru Tarihi (Opsiyonel)</label>
+                                                <input type="date" class="form-control" id="addCareerDeadline">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addCareerMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="addCareerMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addCareerSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="addCareerSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addCareerDetailCkeditor" class="form-label">Detaylı İş Tanımı ve Gereksinimler</label>
+                                                <textarea class="form-control" id="addCareerDetailCkeditor" name="addCareerDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addCareerTags" class="form-label">Etiketler (Pozisyonla İlgili Anahtar Kelimeler)</label>
+                                                <input type="text" class="form-control" id="addCareerTags" name="addCareerTags" placeholder="frontend, react, javascript">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addCareerForm" class="btn btn-primary">Kariyer İlanını Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Career Modal (Similar to Add Career Modal) -->
+                        <div class="modal fade" id="editCareerModal" tabindex="-1" aria-labelledby="editCareerModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editCareerModalLabel">Kariyer İlanını Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editCareerForm">
+                                            <input type="hidden" id="editCareerIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editCareerPositionName" class="form-label">Pozisyon Adı</label>
+                                                <input type="text" class="form-control" id="editCareerPositionName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editCareerUrl" class="form-label">İlan URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="editCareerUrl">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editCareerStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="editCareerStatus">
+                                                        <option value="open">Açık (Yayında)</option>
+                                                        <option value="closed">Kapalı (Yayında Değil)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editCareerDepartment" class="form-label">Departman</label>
+                                                    <input type="text" class="form-control" id="editCareerDepartment">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editCareerLocation" class="form-label">Lokasyon</label>
+                                                    <input type="text" class="form-control" id="editCareerLocation">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editCareerType" class="form-label">Çalışma Türü</label>
+                                                    <select class="form-select" id="editCareerType">
+                                                        <option value="full-time">Tam Zamanlı</option>
+                                                        <option value="part-time">Yarı Zamanlı</option>
+                                                        <option value="contract">Kontratlı</option>
+                                                        <option value="internship">Stajyer</option>
+                                                        <option value="remote">Uzaktan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editCareerDeadline" class="form-label">Son Başvuru Tarihi (Opsiyonel)</label>
+                                                <input type="date" class="form-control" id="editCareerDeadline">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editCareerMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="editCareerMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editCareerSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="editCareerSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editCareerDetailCkeditor" class="form-label">Detaylı İş Tanımı ve Gereksinimler</label>
+                                                <textarea class="form-control" id="editCareerDetailCkeditor" name="editCareerDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editCareerTags" class="form-label">Etiketler</label>
+                                                <input type="text" class="form-control" id="editCareerTags" name="editCareerTags">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editCareerForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

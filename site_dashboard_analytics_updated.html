@@ -1,0 +1,148 @@
+                        <!-- Site Ziyaretçi Analizleri Sekmesi -->
+                        <div class="tab-pane fade show active" id="sitedash-analytics" role="tabpanel" aria-labelledby="sitedash-analytics-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Site Ziyaretçi Analizleri</h4>
+                                <div class="btn-group">
+                                    <input type="text" class="form-control form-control-sm me-2" id="analyticsDateRange" placeholder="Tarih Aralığı Seçin" style="width: 220px;"> <!-- Date Range Picker için placeholder -->
+                                    <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Veri Kaynağı (Kavramsal)
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Google Analytics (Entegre Değil)</a></li>
+                                        <li><a class="dropdown-item" href="#">Dahili İzleme (Aktif Değil)</a></li>
+                                        <li><a class="dropdown-item" href="#">Başka Bir Servis</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenizin ziyaretçi trafiği, popüler içerikler, trafik kaynakları gibi analiz verilerini görüntüleyebilirsiniz. Bu arayüz kavramsal olup, gerçek analiz verilerinin gösterimi için Google Analytics gibi bir servisle entegrasyon veya özel bir izleme altyapısı gereklidir. Grafikler ve veriler örnektir.</small></p>
+
+                                    <!-- Özet Kartlar -->
+                                    <div class="row mb-4">
+                                        <div class="col-md-3">
+                                            <div class="card text-center shadow-sm h-100">
+                                                <div class="card-body d-flex flex-column justify-content-center">
+                                                    <h5 class="card-title"><i class="fas fa-users text-primary me-2"></i>Toplam Ziyaretçi</h5>
+                                                    <p class="card-text fs-4 fw-bold mb-0">12,345</p>
+                                                    <small class="text-success"><i class="fas fa-arrow-up"></i> %5.2 (Geçen Dönem)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card text-center shadow-sm h-100">
+                                                <div class="card-body d-flex flex-column justify-content-center">
+                                                    <h5 class="card-title"><i class="fas fa-eye text-info me-2"></i>Sayfa Görüntüleme</h5>
+                                                    <p class="card-text fs-4 fw-bold mb-0">45,678</p>
+                                                    <small class="text-success"><i class="fas fa-arrow-up"></i> %8.1 (Geçen Dönem)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card text-center shadow-sm h-100">
+                                                <div class="card-body d-flex flex-column justify-content-center">
+                                                    <h5 class="card-title"><i class="fas fa-hand-pointer text-warning me-2"></i>Hemen Çıkma Oranı</h5>
+                                                    <p class="card-text fs-4 fw-bold mb-0">35.6%</p>
+                                                    <small class="text-danger"><i class="fas fa-arrow-down"></i> %-2.3 (Geçen Dönem)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card text-center shadow-sm h-100">
+                                                <div class="card-body d-flex flex-column justify-content-center">
+                                                    <h5 class="card-title"><i class="far fa-clock text-success me-2"></i>Ort. Oturum Süresi</h5>
+                                                    <p class="card-text fs-4 fw-bold mb-0">3dk 45sn</p>
+                                                    <small class="text-success"><i class="fas fa-arrow-up"></i> %1.5 (Geçen Dönem)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Grafikler -->
+                                    <div class="row mb-4">
+                                        <div class="col-md-8">
+                                            <div class="card shadow-sm">
+                                                <div class="card-header bg-light border-bottom-0">Ziyaretçi Trafiği (Son 30 Gün)</div>
+                                                <div class="card-body">
+                                                    <canvas id="visitorTrafficChart" height="150"></canvas>
+                                                    <p class="text-center text-muted mt-2 mb-0"><small>Bu bir örnek grafiktir. Gerçek veri için Chart.js entegrasyonu gerekir.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card shadow-sm">
+                                                <div class="card-header bg-light border-bottom-0">Trafik Kaynakları</div>
+                                                <div class="card-body">
+                                                    <canvas id="trafficSourceChart" height="150"></canvas>
+                                                    <p class="text-center text-muted mt-2 mb-0"><small>Bu bir örnek pasta grafiktir.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Popüler Sayfalar ve Ülkeler -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card shadow-sm">
+                                                <div class="card-header bg-light border-bottom-0">En Popüler Sayfalar</div>
+                                                <div class="card-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            /blog/yeni-teknolojiler
+                                                            <span class="badge bg-primary rounded-pill">1,230</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            /hizmetlerimiz/web-tasarim
+                                                            <span class="badge bg-primary rounded-pill">980</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            /urunler/xyz-modeli
+                                                            <span class="badge bg-primary rounded-pill">750</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            /hakkimizda
+                                                            <span class="badge bg-primary rounded-pill">620</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            /iletisim
+                                                            <span class="badge bg-primary rounded-pill">510</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card shadow-sm">
+                                                <div class="card-header bg-light border-bottom-0">Ziyaretçi Ülkeleri</div>
+                                                <div class="card-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <span><img src="https://flagcdn.com/w20/tr.png" alt="TR Flag" class="me-2"> Türkiye</span>
+                                                            <span class="badge bg-info rounded-pill">%65</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <span><img src="https://flagcdn.com/w20/de.png" alt="DE Flag" class="me-2"> Almanya</span>
+                                                            <span class="badge bg-info rounded-pill">%15</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <span><img src="https://flagcdn.com/w20/us.png" alt="US Flag" class="me-2"> ABD</span>
+                                                            <span class="badge bg-info rounded-pill">%10</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <span><img src="https://flagcdn.com/w20/gb.png" alt="GB Flag" class="me-2"> Birleşik Krallık</span>
+                                                            <span class="badge bg-info rounded-pill">%5</span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            Diğer
+                                                            <span class="badge bg-secondary rounded-pill">%5</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-center mt-4"><small>Not: Grafikler için <a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Chart.js</a> gibi bir kütüphane ve tarih aralığı seçimi için <a href="https://www.daterangepicker.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">DateRangePicker</a> gibi bir eklenti kullanılabilir. Bu arayüzdeki grafikler ve veriler örnektir.</small></p>
+                                </div>
+                            </div>
+                        </div>
+

@@ -1,0 +1,74 @@
+                        <!-- Genel Site Ayarları Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-general-settings" role="tabpanel" aria-labelledby="sitedash-general-settings-tab-link">
+                            <h4>Genel Site Ayarları</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenizin temel yapılandırma ayarlarını yönetebilirsiniz. Değişikliklerin etkili olması için genellikle bir "Kaydet" işlemi gerekir (bu arayüzde kavramsal olarak gösterilmiştir).</small></p>
+                                    <form id="generalSiteSettingsForm">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteSettingTitle" class="form-label">Site Başlığı</label>
+                                                <input type="text" class="form-control" id="siteSettingTitle" value="Örnek Site A.Ş.">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteSettingSlogan" class="form-label">Site Sloganı (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="siteSettingSlogan" value="Kaliteli Hizmetin Adresi">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteSettingLang" class="form-label">Varsayılan Site Dili</label>
+                                                <select class="form-select" id="siteSettingLang">
+                                                    <option value="tr" selected>Türkçe (TR)</option>
+                                                    <option value="en">İngilizce (EN)</option>
+                                                    <option value="de">Almanca (DE)</option>
+                                                    <option value="fr">Fransızca (FR)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteSettingTimezone" class="form-label">Saat Dilimi</label>
+                                                <select class="form-select" id="siteSettingTimezone">
+                                                    <option value="Europe/Istanbul" selected>Europe/Istanbul</option>
+                                                    <option value="UTC">UTC</option>
+                                                    <option value="America/New_York">America/New_York</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="siteSettingMaintenanceMode">
+                                                    <label class="form-check-label" for="siteSettingMaintenanceMode">Bakım Modu Aktif</label>
+                                                </div>
+                                                <small class="text-muted">Bakım modu aktifken, site ziyaretçilere kapalı olur ve sadece yetkili kullanıcılar görebilir.</small>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteSettingMaintenanceMessage" class="form-label">Bakım Modu Mesajı</label>
+                                                <textarea class="form-control" id="siteSettingMaintenanceMessage" rows="2" placeholder="Sitemiz şu anda planlı bakım çalışması nedeniyle geçici olarak hizmet dışıdır. Anlayışınız için teşekkür ederiz.">Sitemiz şu anda planlı bakım çalışması nedeniyle geçici olarak hizmet dışıdır. Anlayışınız için teşekkür ederiz.</textarea>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="siteSettingUserSystem" checked>
+                                                    <label class="form-check-label" for="siteSettingUserSystem">Siteye Özel Kullanıcı Sistemi Aktif</label>
+                                                </div>
+                                                <small class="text-muted">Bu ayar aktifse, bu site için "Kullanıcılar" sekmesinden yönetilebilen ayrı bir kullanıcı kayıt ve giriş sistemi olur. Pasif ise, sitenin genel erişime açık olduğu veya kullanıcı yönetiminin bu panel dışından yapıldığı varsayılır.</small>
+                                            </div>
+                                             <div class="col-md-6 mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="siteSettingCommentsEnabled" checked>
+                                                    <label class="form-check-label" for="siteSettingCommentsEnabled">Yorumlar Genel Olarak Aktif</label>
+                                                </div>
+                                                <small class="text-muted">Blog yazıları ve diğer içerik türleri için yorum yapma özelliğini genel olarak açar/kapatır.</small>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 text-end">
+                                            <button type="submit" class="btn btn-primary">Genel Ayarları Kaydet</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>

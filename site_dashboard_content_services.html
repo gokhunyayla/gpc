@@ -1,0 +1,196 @@
+                        <!-- Hizmetler Yönetim Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-services" role="tabpanel" aria-labelledby="sitedash-services-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Hizmet Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+                                    <i class="fas fa-plus me-2"></i>Yeni Hizmet Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Hizmet Adı</th>
+                                                    <th>Kategori</th>
+                                                    <th>Süre/Fiyat (Örnek)</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Web Tasarım Danışmanlığı</td>
+                                                    <td>Danışmanlık</td>
+                                                    <td>Saatlik / 250 TL</td>
+                                                    <td><span class="badge bg-success">Aktif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editServiceModal" data-service-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Pasif Yap"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SEO Optimizasyon Paketi</td>
+                                                    <td>Pazarlama</td>
+                                                    <td>Aylık / 1500 TL</td>
+                                                    <td><span class="badge bg-secondary">Pasif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editServiceModal" data-service-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Aktif Yap"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Service Modal -->
+                        <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addServiceModalLabel">Yeni Hizmet Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addServiceForm">
+                                            <div class="mb-3">
+                                                <label for="addServiceName" class="form-label">Hizmet Adı</label>
+                                                <input type="text" class="form-control" id="addServiceName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addServiceUrl" class="form-label">Hizmet URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="addServiceUrl" placeholder="otomatik-oluşturulur-veya-manuel">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addServiceStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="addServiceStatus">
+                                                        <option value="active" selected>Aktif</option>
+                                                        <option value="inactive">Pasif</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addServiceCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="addServiceCategory">
+                                                        <option value="danismanlik">Danışmanlık</option>
+                                                        <option value="pazarlama">Pazarlama</option>
+                                                        <option value="teknik-destek">Teknik Destek</option>
+                                                        <!-- Kategoriler dinamik olarak eklenebilir/yönetilebilir olmalı -->
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addServicePriceInfo" class="form-label">Fiyatlandırma Bilgisi (Örn: Saatlik / 250 TL)</label>
+                                                    <input type="text" class="form-control" id="addServicePriceInfo">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addServiceMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="addServiceMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addServiceSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="addServiceSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addServiceDetailCkeditor" class="form-label">Detaylı Hizmet Açıklaması</label>
+                                                <textarea class="form-control" id="addServiceDetailCkeditor" name="addServiceDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addServiceImage" class="form-label">Hizmet Görseli (Opsiyonel)</label>
+                                                <input class="form-control" type="file" id="addServiceImage">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addServiceTags" class="form-label">Etiketler</label>
+                                                <input type="text" class="form-control" id="addServiceTags" name="addServiceTags" placeholder="etiket1, etiket2">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addServiceForm" class="btn btn-primary">Hizmeti Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Service Modal (Similar to Add Service Modal) -->
+                        <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editServiceModalLabel">Hizmeti Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editServiceForm">
+                                            <input type="hidden" id="editServiceIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editServiceName" class="form-label">Hizmet Adı</label>
+                                                <input type="text" class="form-control" id="editServiceName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editServiceUrl" class="form-label">Hizmet URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="editServiceUrl">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editServiceStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="editServiceStatus">
+                                                        <option value="active">Aktif</option>
+                                                        <option value="inactive">Pasif</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editServiceCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="editServiceCategory">
+                                                        <option value="danismanlik">Danışmanlık</option>
+                                                        <option value="pazarlama">Pazarlama</option>
+                                                        <option value="teknik-destek">Teknik Destek</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editServicePriceInfo" class="form-label">Fiyatlandırma Bilgisi</label>
+                                                    <input type="text" class="form-control" id="editServicePriceInfo">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editServiceMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="editServiceMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editServiceSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="editServiceSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editServiceDetailCkeditor" class="form-label">Detaylı Hizmet Açıklaması</label>
+                                                <textarea class="form-control" id="editServiceDetailCkeditor" name="editServiceDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editServiceImage" class="form-label">Hizmet Görseli</label>
+                                                <input class="form-control" type="file" id="editServiceImage">
+                                                <small class="form-text text-muted-medium mt-1">Mevcut görsel: <span id="currentServiceImagePlaceholder">yok</span>. Değiştirmek için yeni bir dosya seçin.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editServiceTags" class="form-label">Etiketler</label>
+                                                <input type="text" class="form-control" id="editServiceTags" name="editServiceTags">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editServiceForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

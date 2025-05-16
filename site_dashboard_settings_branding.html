@@ -1,0 +1,61 @@
+                        <!-- Marka & Logo Yönetim Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-branding" role="tabpanel" aria-labelledby="sitedash-branding-tab-link">
+                            <h4>Marka, Logo ve Favicon Yönetimi</h4>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <form id="brandingSettingsForm">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteMainLogo" class="form-label">Ana Logo Yükle</label>
+                                                <input class="form-control" type="file" id="siteMainLogo" accept="image/png, image/jpeg, image/svg+xml">
+                                                <div class="mt-2">
+                                                    <img id="mainLogoPreview" src="#" alt="Ana Logo Önizleme" class="img-thumbnail" style="max-height: 100px; display: none;">
+                                                </div>
+                                                <small class="form-text text-muted">Önerilen boyut: 300x100 piksel. Desteklenen formatlar: PNG, JPG, SVG.</small>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteFavicon" class="form-label">Favicon Yükle</label>
+                                                <input class="form-control" type="file" id="siteFavicon" accept="image/x-icon, image/png">
+                                                <div class="mt-2">
+                                                    <img id="faviconPreview" src="#" alt="Favicon Önizleme" class="img-thumbnail" style="max-height: 32px; display: none;">
+                                                </div>
+                                                <small class="form-text text-muted">Önerilen boyut: 32x32 piksel. Desteklenen formatlar: ICO, PNG.</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteBrandName" class="form-label">Site Marka Adı / Başlığı</label>
+                                                <input type="text" class="form-control" id="siteBrandName" placeholder="Örn: Şirket Adı A.Ş.">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="siteTagline" class="form-label">Site Sloganı / Kısa Açıklama (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="siteTagline" placeholder="Örn: Kaliteli hizmetin adresi">
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mt-4">Marka Renkleri (Kavramsal)</h5>
+                                        <p class="text-muted"><small>Bu alanlar, sitenizin ana renk paletini tanımlamanıza yardımcı olur. Gerçek uygulama tema veya CSS ile entegre olacaktır.</small></p>
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="primaryBrandColor" class="form-label">Ana Marka Rengi</label>
+                                                <input type="color" class="form-control form-control-color" id="primaryBrandColor" value="#000000" title="Ana marka rengini seçin">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="secondaryBrandColor" class="form-label">İkincil Marka Rengi</label>
+                                                <input type="color" class="form-control form-control-color" id="secondaryBrandColor" value="#6c757d" title="İkincil marka rengini seçin">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="accentBrandColor" class="form-label">Vurgu Rengi</label>
+                                                <input type="color" class="form-control form-control-color" id="accentBrandColor" value="#198754" title="Vurgu rengini seçin">
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <button type="submit" class="btn btn-primary">Marka Ayarlarını Kaydet</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+

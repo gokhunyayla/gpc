@@ -1,0 +1,201 @@
+                        <!-- Ortam Dosyaları Yönetimi Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-media" role="tabpanel" aria-labelledby="sitedash-media-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Ortam Dosyaları Yönetimi</h4>
+                                <div>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#uploadMediaModal">
+                                        <i class="fas fa-upload me-2"></i>Yeni Ortam Dosyası Yükle
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenize ait resim, video, PDF, ZIP gibi ortam dosyalarını yönetebilirsiniz. Desteklenen formatlar: ZIP, PDF, PNG, JPG/JPEG, JPEG2000. Bu arayüz kavramsal olup, gerçek dosya yükleme ve yönetimi backend entegrasyonu gerektirecektir.</small></p>
+                                    
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Dosya adında ara...">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-select form-select-sm">
+                                                <option selected>Tüm Dosya Türleri</option>
+                                                <option value="image">Resimler</option>
+                                                <option value="document">Belgeler (PDF)</option>
+                                                <option value="archive">Arşivler (ZIP)</option>
+                                                <option value="other">Diğer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-select form-select-sm">
+                                                <option selected>Tarihe Göre Sırala (En Yeni)</option>
+                                                <option value="oldest">En Eski</option>
+                                                <option value="name_asc">Ada Göre (A-Z)</option>
+                                                <option value="name_desc">Ada Göre (Z-A)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 text-end">
+                                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-filter me-1"></i>Filtrele</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ortam Dosyaları Galerisi/Listesi -->
+                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3" id="mediaLibrary">
+                                        <!-- Örnek Resim Öğesi -->
+                                        <div class="col">
+                                            <div class="card h-100 media-item">
+                                                <img src="https://via.placeholder.com/300x200.png/6c757d/fff?text=Örnek+Resim+1" class="card-img-top" alt="Örnek Resim 1" style="aspect-ratio: 3/2; object-fit: cover;">
+                                                <div class="card-body p-2">
+                                                    <h6 class="card-title small mb-1 text-truncate" title="ornek_resim_dosyasi_1.jpg">ornek_resim_dosyasi_1.jpg</h6>
+                                                    <p class="card-text small text-muted mb-1">JPG | 150KB</p>
+                                                    <p class="card-text small text-muted">12 Mayıs 2025</p>
+                                                </div>
+                                                <div class="card-footer p-1 bg-transparent border-top-0 text-center">
+                                                    <button class="btn btn-sm btn-outline-dark me-1" title="Detaylar/Düzenle" data-bs-toggle="modal" data-bs-target="#mediaDetailsModal"><i class="fas fa-info-circle"></i></button>
+                                                    <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Örnek PDF Öğesi -->
+                                        <div class="col">
+                                            <div class="card h-100 media-item">
+                                                <div class="text-center py-4 bg-light" style="aspect-ratio: 3/2; display: flex; align-items: center; justify-content: center;">
+                                                    <i class="fas fa-file-pdf fa-4x text-danger"></i>
+                                                </div>
+                                                <div class="card-body p-2">
+                                                    <h6 class="card-title small mb-1 text-truncate" title="urun_katalogu_v2.pdf">urun_katalogu_v2.pdf</h6>
+                                                    <p class="card-text small text-muted mb-1">PDF | 2.5MB</p>
+                                                    <p class="card-text small text-muted">10 Mayıs 2025</p>
+                                                </div>
+                                                <div class="card-footer p-1 bg-transparent border-top-0 text-center">
+                                                    <button class="btn btn-sm btn-outline-dark me-1" title="Detaylar/Düzenle" data-bs-toggle="modal" data-bs-target="#mediaDetailsModal"><i class="fas fa-info-circle"></i></button>
+                                                    <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Örnek ZIP Öğesi -->
+                                        <div class="col">
+                                            <div class="card h-100 media-item">
+                                                <div class="text-center py-4 bg-light" style="aspect-ratio: 3/2; display: flex; align-items-center; justify-content: center;">
+                                                    <i class="fas fa-file-archive fa-4x text-warning"></i>
+                                                </div>
+                                                <div class="card-body p-2">
+                                                    <h6 class="card-title small mb-1 text-truncate" title="proje_dosyalari_yedek.zip">proje_dosyalari_yedek.zip</h6>
+                                                    <p class="card-text small text-muted mb-1">ZIP | 15MB</p>
+                                                    <p class="card-text small text-muted">05 Mayıs 2025</p>
+                                                </div>
+                                                <div class="card-footer p-1 bg-transparent border-top-0 text-center">
+                                                    <button class="btn btn-sm btn-outline-dark me-1" title="Detaylar/Düzenle" data-bs-toggle="modal" data-bs-target="#mediaDetailsModal"><i class="fas fa-info-circle"></i></button>
+                                                    <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Daha fazla medya öğesi buraya eklenebilir -->
+                                    </div>
+                                    <nav aria-label="Media pagination" class="mt-4">
+                                        <ul class="pagination pagination-sm justify-content-center">
+                                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Önceki</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Sonraki</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upload Media Modal -->
+                        <div class="modal fade" id="uploadMediaModal" tabindex="-1" aria-labelledby="uploadMediaModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="uploadMediaModalLabel">Yeni Ortam Dosyası Yükle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="uploadMediaForm">
+                                            <div class="mb-3">
+                                                <label for="mediaFileUpload" class="form-label">Dosyaları Seçin (Çoklu seçim yapabilirsiniz)</label>
+                                                <input class="form-control" type="file" id="mediaFileUpload" multiple>
+                                                <small class="text-muted">Desteklenen formatlar: ZIP, PDF, PNG, JPG/JPEG, JPEG2000. Maksimum dosya boyutu: 20MB (Örnek limit).</small>
+                                            </div>
+                                            <!-- Yükleme ilerlemesi için bir alan eklenebilir -->
+                                            <div id="uploadPreviewArea"></div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="uploadMediaForm" class="btn btn-primary"><i class="fas fa-cloud-upload-alt me-2"></i>Yükle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media Details/Edit Modal -->
+                        <div class="modal fade" id="mediaDetailsModal" tabindex="-1" aria-labelledby="mediaDetailsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="mediaDetailsModalLabel">Ortam Dosyası Detayları</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-5 text-center">
+                                                <!-- Önizleme alanı (resimse resim, değilse ikon) -->
+                                                <img src="https://via.placeholder.com/300x200.png/6c757d/fff?text=Örnek+Resim" id="mediaPreviewImage" class="img-fluid rounded mb-2" alt="Dosya Önizlemesi" style="max-height: 250px;">
+                                                <i id="mediaPreviewIcon" class="fas fa-file-alt fa-6x text-secondary d-none"></i>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <form id="mediaDetailsForm">
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileName" class="form-label small">Dosya Adı:</label>
+                                                        <input type="text" readonly class="form-control-plaintext form-control-sm" id="mediaFileName" value="ornek_resim_dosyasi_1.jpg">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileType" class="form-label small">Dosya Türü:</label>
+                                                        <input type="text" readonly class="form-control-plaintext form-control-sm" id="mediaFileType" value="image/jpeg">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileSize" class="form-label small">Dosya Boyutu:</label>
+                                                        <input type="text" readonly class="form-control-plaintext form-control-sm" id="mediaFileSize" value="150 KB">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileUploadedDate" class="form-label small">Yükleme Tarihi:</label>
+                                                        <input type="text" readonly class="form-control-plaintext form-control-sm" id="mediaFileUploadedDate" value="12 Mayıs 2025, 14:30">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileUrl" class="form-label small">Dosya URL:</label>
+                                                        <div class="input-group input-group-sm">
+                                                            <input type="text" readonly class="form-control form-control-sm" id="mediaFileUrl" value="https://siteniz.com/uploads/ornek_resim_dosyasi_1.jpg">
+                                                            <button class="btn btn-outline-secondary btn-sm" type="button" id="copyMediaUrlBtn" title="URL'yi Kopyala"><i class="fas fa-copy"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="my-2">
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileAltText" class="form-label small">Alternatif Metin (Resimler için):</label>
+                                                        <input type="text" class="form-control form-control-sm" id="mediaFileAltText" placeholder="Resim açıklaması (SEO için önemli)">
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        <label for="mediaFileCaption" class="form-label small">Başlık (Caption):</label>
+                                                        <input type="text" class="form-control form-control-sm" id="mediaFileCaption" placeholder="Resim altı başlığı">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="mediaFileDescription" class="form-label small">Açıklama:</label>
+                                                        <textarea class="form-control form-control-sm" id="mediaFileDescription" rows="2" placeholder="Dosya hakkında kısa açıklama"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-danger btn-sm" id="deleteMediaFileBtn"><i class="fas fa-trash me-1"></i>Bu Dosyayı Sil</button>
+                                        <div>
+                                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kapat</button>
+                                            <button type="submit" form="mediaDetailsForm" class="btn btn-primary btn-sm"><i class="fas fa-save me-1"></i>Değişiklikleri Kaydet</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

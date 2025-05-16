@@ -1,0 +1,228 @@
+                        <!-- Menü Yönetimi Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-menus" role="tabpanel" aria-labelledby="sitedash-menus-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Menü Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#createNewMenuModal">
+                                    <i class="fas fa-plus me-2"></i>Yeni Menü Oluştur
+                                </button>
+                            </div>
+
+                            <div class="row">
+                                <!-- Sol Panel: Menü Seçimi ve Öğe Ekleme -->
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            Düzenlenecek Menüyü Seçin veya Yeni Oluşturun
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="input-group mb-3">
+                                                <select class="form-select" id="selectExistingMenu">
+                                                    <option selected>Bir menü seçin...</option>
+                                                    <option value="1">Ana Menü (Mevcut)</option>
+                                                    <option value="2">Alt Bilgi Menüsü (Mevcut)</option>
+                                                </select>
+                                                <button class="btn btn-outline-secondary" type="button" id="editSelectedMenuBtn">Seç</button>
+                                            </div>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createNewMenuModal">veya yeni bir menü oluşturun.</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Menü Öğeleri Ekle
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="accordion" id="menuItemSources">
+                                                <!-- Sayfalar -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="menuPagesHeading">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuPagesCollapse" aria-expanded="false" aria-controls="menuPagesCollapse">
+                                                            Sayfalar
+                                                        </button>
+                                                    </h2>
+                                                    <div id="menuPagesCollapse" class="accordion-collapse collapse" aria-labelledby="menuPagesHeading" data-bs-parent="#menuItemSources">
+                                                        <div class="accordion-body" style="max-height: 200px; overflow-y: auto;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="/anasayfa" id="page-anasayfa">
+                                                                <label class="form-check-label" for="page-anasayfa">Ana Sayfa</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="/hakkimizda" id="page-hakkimizda">
+                                                                <label class="form-check-label" for="page-hakkimizda">Hakkımızda</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="/iletisim" id="page-iletisim">
+                                                                <label class="form-check-label" for="page-iletisim">İletişim</label>
+                                                            </div>
+                                                            <!-- Daha fazla sayfa eklenebilir -->
+                                                            <button class="btn btn-sm btn-outline-dark mt-2" id="addSelectedPagesToMenu">Seçilenleri Menüye Ekle</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Blog Yazıları -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="menuPostsHeading">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuPostsCollapse" aria-expanded="false" aria-controls="menuPostsCollapse">
+                                                            Blog Yazıları
+                                                        </button>
+                                                    </h2>
+                                                    <div id="menuPostsCollapse" class="accordion-collapse collapse" aria-labelledby="menuPostsHeading" data-bs-parent="#menuItemSources">
+                                                        <div class="accordion-body" style="max-height: 200px; overflow-y: auto;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="/blog/ilk-yazim" id="post-ilk-yazim">
+                                                                <label class="form-check-label" for="post-ilk-yazim">İlk Yazım</label>
+                                                            </div>
+                                                            <!-- Daha fazla yazı eklenebilir -->
+                                                            <button class="btn btn-sm btn-outline-dark mt-2" id="addSelectedPostsToMenu">Seçilenleri Menüye Ekle</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Özel Bağlantılar -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="menuCustomLinkHeading">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuCustomLinkCollapse" aria-expanded="false" aria-controls="menuCustomLinkCollapse">
+                                                            Özel Bağlantılar
+                                                        </button>
+                                                    </h2>
+                                                    <div id="menuCustomLinkCollapse" class="accordion-collapse collapse" aria-labelledby="menuCustomLinkHeading" data-bs-parent="#menuItemSources">
+                                                        <div class="accordion-body">
+                                                            <div class="mb-2">
+                                                                <label for="customMenuUrl" class="form-label">URL</label>
+                                                                <input type="text" id="customMenuUrl" class="form-control form-control-sm" placeholder="https://">
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <label for="customMenuLabel" class="form-label">Bağlantı Metni</label>
+                                                                <input type="text" id="customMenuLabel" class="form-control form-control-sm">
+                                                            </div>
+                                                            <button class="btn btn-sm btn-outline-dark" id="addCustomLinkToMenu">Menüye Ekle</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Diğer içerik türleri (Ürünler, Hizmetler, Kategoriler vb.) benzer şekilde eklenebilir -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sağ Panel: Menü Yapısı -->
+                                <div class="col-lg-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <span id="currentEditingMenuName">Ana Menü</span> Yapısı
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-muted"><small>Menü öğelerini sürükleyip bırakarak yeniden sıralayabilir veya iç içe yerleştirebilirsiniz. Değişiklikleri kaydetmeyi unutmayın.</small></p>
+                                            <ul id="menuStructureSortable" class="list-group" style="min-height: 200px; border: 1px dashed #ccc; padding: 10px;">
+                                                <!-- Örnek Menü Öğeleri (Dinamik olarak JS ile doldurulacak) -->
+                                                <li class="list-group-item menu-item" data-id="1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-grip-vertical me-2"></i> Ana Sayfa</span>
+                                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" href="#menuItemDetails-1" role="button" aria-expanded="false" aria-controls="menuItemDetails-1"><i class="fas fa-caret-down"></i></button>
+                                                    </div>
+                                                    <div class="collapse mt-2 p-2 bg-light border rounded" id="menuItemDetails-1">
+                                                        <div class="mb-2">
+                                                            <label class="form-label-sm">Navigasyon Etiketi</label>
+                                                            <input type="text" class="form-control form-control-sm" value="Ana Sayfa">
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label-sm">URL</label>
+                                                            <input type="text" class="form-control form-control-sm" value="/anasayfa" readonly>
+                                                        </div>
+                                                        <a href="#" class="text-danger remove-menu-item">Kaldır</a> | <a href="#" data-bs-toggle="collapse" data-bs-target="#menuItemDetails-1">İptal</a>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item menu-item" data-id="2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-grip-vertical me-2"></i> Hakkımızda</span>
+                                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" href="#menuItemDetails-2" role="button" aria-expanded="false" aria-controls="menuItemDetails-2"><i class="fas fa-caret-down"></i></button>
+                                                    </div>
+                                                    <div class="collapse mt-2 p-2 bg-light border rounded" id="menuItemDetails-2">
+                                                        <label class="form-label-sm">Navigasyon Etiketi</label>
+                                                        <input type="text" class="form-control form-control-sm" value="Hakkımızda">
+                                                        <label class="form-label-sm mt-1">URL</label>
+                                                        <input type="text" class="form-control form-control-sm" value="/hakkimizda" readonly>
+                                                        <a href="#" class="text-danger remove-menu-item">Kaldır</a> | <a href="#" data-bs-toggle="collapse" data-bs-target="#menuItemDetails-2">İptal</a>
+                                                        <!-- Alt Menü Örneği -->
+                                                        <ul class="list-group mt-2" style="margin-left: 20px;">
+                                                            <li class="list-group-item menu-item" data-id="3">
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <span><i class="fas fa-grip-vertical me-2"></i> Ekibimiz</span>
+                                                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" href="#menuItemDetails-3"><i class="fas fa-caret-down"></i></button>
+                                                                </div>
+                                                                <div class="collapse mt-2 p-2 bg-light border rounded" id="menuItemDetails-3">
+                                                                    <label class="form-label-sm">Navigasyon Etiketi</label>
+                                                                    <input type="text" class="form-control form-control-sm" value="Ekibimiz">
+                                                                    <label class="form-label-sm mt-1">URL</label>
+                                                                    <input type="text" class="form-control form-control-sm" value="/ekibimiz" readonly>
+                                                                    <a href="#" class="text-danger remove-menu-item">Kaldır</a> | <a href="#" data-bs-toggle="collapse" data-bs-target="#menuItemDetails-3">İptal</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item menu-item" data-id="4">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-grip-vertical me-2"></i> İletişim (Özel Bağlantı)</span>
+                                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" href="#menuItemDetails-4"><i class="fas fa-caret-down"></i></button>
+                                                    </div>
+                                                    <div class="collapse mt-2 p-2 bg-light border rounded" id="menuItemDetails-4">
+                                                        <label class="form-label-sm">Navigasyon Etiketi</label>
+                                                        <input type="text" class="form-control form-control-sm" value="İletişim">
+                                                        <label class="form-label-sm mt-1">URL</label>
+                                                        <input type="text" class="form-control form-control-sm" value="/iletisim-formu">
+                                                        <a href="#" class="text-danger remove-menu-item">Kaldır</a> | <a href="#" data-bs-toggle="collapse" data-bs-target="#menuItemDetails-4">İptal</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="mt-3 d-flex justify-content-between">
+                                                <button class="btn btn-danger btn-sm" id="deleteCurrentMenuBtn" disabled>Bu Menüyü Sil</button>
+                                                <button class="btn btn-primary" id="saveMenuStructureBtn">Menüyü Kaydet</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Yeni Menü Oluştur Modal -->
+                            <div class="modal fade" id="createNewMenuModal" tabindex="-1" aria-labelledby="createNewMenuModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="createNewMenuModalLabel">Yeni Menü Oluştur</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="newMenuForm">
+                                                <div class="mb-3">
+                                                    <label for="newMenuNameInput" class="form-label">Menü Adı</label>
+                                                    <input type="text" class="form-control" id="newMenuNameInput" placeholder="Örn: Üst Menü" required>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                            <button type="submit" form="newMenuForm" class="btn btn-primary">Oluştur ve Düzenle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gerekli JS Kütüphaneleri (SortableJS gibi) ve özel scriptler eklenecek -->
+                        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script> -->
+                        <!-- <script>
+                        // SortableJS başlatma ve menü yönetimi JS kodları buraya gelecek.
+                        // Bu sadece bir HTML iskeletidir.
+                        // document.addEventListener('DOMContentLoaded', function () {
+                        //     var el = document.getElementById('menuStructureSortable');
+                        //     var sortable = Sortable.create(el, {
+                        //         animation: 150,
+                        //         ghostClass: 'bg-light-subtle',
+                        //         group: 'nested',
+                        //         handle: '.fa-grip-vertical',
+                        //         fallbackOnBody: true,
+                        //         swapThreshold: 0.65
+                        //     });
+                        // });
+                        </script> -->
+

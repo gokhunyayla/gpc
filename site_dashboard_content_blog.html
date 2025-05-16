@@ -1,0 +1,191 @@
+                        <!-- Blog Yazıları Yönetim Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-posts" role="tabpanel" aria-labelledby="sitedash-posts-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Blog Yazısı Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addPostModal">
+                                    <i class="fas fa-plus me-2"></i>Yeni Blog Yazısı Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Başlık</th>
+                                                    <th>Kategori</th>
+                                                    <th>URL</th>
+                                                    <th>Durum</th>
+                                                    <th>Yayın Tarihi</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>İlk Blog Yazım</td>
+                                                    <td>Teknoloji</td>
+                                                    <td>/blog/ilk-blog-yazim</td>
+                                                    <td><span class="badge bg-success">Yayında</span></td>
+                                                    <td>10.05.2025</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editPostModal" data-post-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Taslak Yap"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bootstrap 5 İpuçları</td>
+                                                    <td>Web Geliştirme</td>
+                                                    <td>/blog/bootstrap-5-ipuclari</td>
+                                                    <td><span class="badge bg-secondary">Taslak</span></td>
+                                                    <td>11.05.2025</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editPostModal" data-post-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Yayınla"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Post Modal -->
+                        <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addPostModalLabel">Yeni Blog Yazısı Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addPostForm">
+                                            <div class="mb-3">
+                                                <label for="addPostTitle" class="form-label">Yazı Başlığı</label>
+                                                <input type="text" class="form-control" id="addPostTitle" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addPostUrl" class="form-label">Yazı URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="addPostUrl" placeholder="otomatik-oluşturulur-veya-manuel">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addPostStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="addPostStatus">
+                                                        <option value="published" selected>Yayında</option>
+                                                        <option value="draft">Taslak</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addPostCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="addPostCategory">
+                                                        <option value="teknoloji">Teknoloji</option>
+                                                        <option value="web-gelistirme">Web Geliştirme</option>
+                                                        <option value="diger">Diğer</option>
+                                                        <!-- Kategoriler dinamik olarak eklenebilir/yönetilebilir olmalı -->
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addPostTags" class="form-label">Etiketler</label>
+                                                    <input type="text" class="form-control" id="addPostTags" name="addPostTags" placeholder="etiket1, etiket2">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addPostMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="addPostMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addPostSummary" class="form-label">Özet</label>
+                                                <textarea class="form-control" id="addPostSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addPostDetailCkeditor" class="form-label">Detaylı İçerik</label>
+                                                <textarea class="form-control" id="addPostDetailCkeditor" name="addPostDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addPostImage" class="form-label">Öne Çıkan Görsel (Opsiyonel)</label>
+                                                <input class="form-control" type="file" id="addPostImage">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addPostForm" class="btn btn-primary">Yazıyı Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Post Modal (Similar to Add Post Modal) -->
+                        <div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editPostModalLabel">Blog Yazısını Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editPostForm">
+                                            <input type="hidden" id="editPostIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editPostTitle" class="form-label">Yazı Başlığı</label>
+                                                <input type="text" class="form-control" id="editPostTitle" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editPostUrl" class="form-label">Yazı URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="editPostUrl">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editPostStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="editPostStatus">
+                                                        <option value="published">Yayında</option>
+                                                        <option value="draft">Taslak</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editPostCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="editPostCategory">
+                                                        <option value="teknoloji">Teknoloji</option>
+                                                        <option value="web-gelistirme">Web Geliştirme</option>
+                                                        <option value="diger">Diğer</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editPostTags" class="form-label">Etiketler</label>
+                                                    <input type="text" class="form-control" id="editPostTags" name="editPostTags">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editPostMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="editPostMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editPostSummary" class="form-label">Özet</label>
+                                                <textarea class="form-control" id="editPostSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editPostDetailCkeditor" class="form-label">Detaylı İçerik</label>
+                                                <textarea class="form-control" id="editPostDetailCkeditor" name="editPostDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editPostImage" class="form-label">Öne Çıkan Görsel</label>
+                                                <input class="form-control" type="file" id="editPostImage">
+                                                <small class="form-text text-muted-medium mt-1">Mevcut görsel: <span id="currentPostImagePlaceholder">yok</span>. Değiştirmek için yeni bir dosya seçin.</small>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editPostForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

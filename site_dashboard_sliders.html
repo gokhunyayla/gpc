@@ -1,0 +1,333 @@
+                        <!-- Slider Yönetimi Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-sliders" role="tabpanel" aria-labelledby="sitedash-sliders-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Slider Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSliderModal">
+                                    <i class="fas fa-plus-square me-2"></i>Yeni Slider Oluştur
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenizin farklı sayfalarında kullanılabilecek slider'ları (slayt gösterileri) yönetebilirsiniz. Her slider birden fazla slayt içerebilir. Bu arayüz kavramsal olup, gerçek slider oluşturma ve görüntüleme backend ve JS entegrasyonu gerektirecektir.</small></p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Slider Adı</th>
+                                                    <th>Kısa Kod (Örnek)</th>
+                                                    <th>Slayt Sayısı</th>
+                                                    <th>Oluşturma Tarihi</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Ana Sayfa Vitrin Slider</td>
+                                                    <td><code>[slider id="1"]</code></td>
+                                                    <td>5</td>
+                                                    <td>01 Mayıs 2025</td>
+                                                    <td><span class="badge bg-primary">Aktif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Slaytları Yönet" data-bs-toggle="modal" data-bs-target="#manageSlidesModal" data-slider-id="1" data-slider-name="Ana Sayfa Vitrin Slider"><i class="fas fa-images"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Ayarlarını Düzenle" data-bs-toggle="modal" data-bs-target="#editSliderModal" data-slider-id="1"><i class="fas fa-cog"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Pasif Yap"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ürünler Sayfası Banner</td>
+                                                    <td><code>[slider id="2"]</code></td>
+                                                    <td>3</td>
+                                                    <td>20 Nisan 2025</td>
+                                                    <td><span class="badge bg-light text-dark">Pasif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Slaytları Yönet" data-bs-toggle="modal" data-bs-target="#manageSlidesModal" data-slider-id="2" data-slider-name="Ürünler Sayfası Banner"><i class="fas fa-images"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Ayarlarını Düzenle" data-bs-toggle="modal" data-bs-target="#editSliderModal" data-slider-id="2"><i class="fas fa-cog"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Aktif Yap"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add/Edit Slider Modal (Slider Ayarları) -->
+                        <div class="modal fade" id="addSliderModal" tabindex="-1" aria-labelledby="addSliderModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addSliderModalLabel">Yeni Slider Oluştur</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addSliderForm">
+                                            <div class="mb-3">
+                                                <label for="addSliderName" class="form-label">Slider Adı</label>
+                                                <input type="text" class="form-control" id="addSliderName" placeholder="Örn: Ana Sayfa Üst Banner" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderTransition" class="form-label">Geçiş Efekti</label>
+                                                    <select class="form-select" id="addSliderTransition">
+                                                        <option value="slide" selected>Kayma (Slide)</option>
+                                                        <option value="fade">Solma (Fade)</option>
+                                                        <option value="cube">Küp (Cube)</option>
+                                                        <option value="coverflow">Coverflow</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderSpeed" class="form-label">Geçiş Hızı (milisaniye)</label>
+                                                    <input type="number" class="form-control" id="addSliderSpeed" value="1000" step="100">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderAutoplay" class="form-label">Otomatik Oynatma</label>
+                                                    <select class="form-select" id="addSliderAutoplay">
+                                                        <option value="true" selected>Evet</option>
+                                                        <option value="false">Hayır</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderDelay" class="form-label">Otomatik Oynatma Gecikmesi (milisaniye)</label>
+                                                    <input type="number" class="form-control" id="addSliderDelay" value="5000" step="500">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderNavigation" class="form-label">Navigasyon Okları</label>
+                                                    <select class="form-select" id="addSliderNavigation">
+                                                        <option value="true" selected>Göster</option>
+                                                        <option value="false">Gizle</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSliderPagination" class="form-label">Sayfalama Noktaları</label>
+                                                    <select class="form-select" id="addSliderPagination">
+                                                        <option value="true" selected>Göster</option>
+                                                        <option value="false">Gizle</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted"><small>Slider oluşturulduktan sonra "Slaytları Yönet" bölümünden içerik (resim, başlık, metin, link) ekleyebilirsiniz.</small></p>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addSliderForm" class="btn btn-primary">Slider Oluştur ve Slayt Ekle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="editSliderModal" tabindex="-1" aria-labelledby="editSliderModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editSliderModalLabel">Slider Ayarlarını Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editSliderForm">
+                                            <input type="hidden" id="editSliderIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editSliderName" class="form-label">Slider Adı</label>
+                                                <input type="text" class="form-control" id="editSliderName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderTransition" class="form-label">Geçiş Efekti</label>
+                                                    <select class="form-select" id="editSliderTransition">
+                                                        <option value="slide">Kayma (Slide)</option>
+                                                        <option value="fade">Solma (Fade)</option>
+                                                        <option value="cube">Küp (Cube)</option>
+                                                        <option value="coverflow">Coverflow</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderSpeed" class="form-label">Geçiş Hızı (milisaniye)</label>
+                                                    <input type="number" class="form-control" id="editSliderSpeed" step="100">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderAutoplay" class="form-label">Otomatik Oynatma</label>
+                                                    <select class="form-select" id="editSliderAutoplay">
+                                                        <option value="true">Evet</option>
+                                                        <option value="false">Hayır</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderDelay" class="form-label">Otomatik Oynatma Gecikmesi (milisaniye)</label>
+                                                    <input type="number" class="form-control" id="editSliderDelay" step="500">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderNavigation" class="form-label">Navigasyon Okları</label>
+                                                    <select class="form-select" id="editSliderNavigation">
+                                                        <option value="true">Göster</option>
+                                                        <option value="false">Gizle</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSliderPagination" class="form-label">Sayfalama Noktaları</label>
+                                                    <select class="form-select" id="editSliderPagination">
+                                                        <option value="true">Göster</option>
+                                                        <option value="false">Gizle</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editSliderForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manage Slides Modal -->
+                        <div class="modal fade" id="manageSlidesModal" tabindex="-1" aria-labelledby="manageSlidesModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="manageSlidesModalLabel">Slaytları Yönet: <span id="managingSliderName"></span></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" id="manageSlidesSliderIdHidden">
+                                        <div class="d-flex justify-content-end mb-3">
+                                            <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addSlideModal">
+                                                <i class="fas fa-plus me-2"></i>Yeni Slayt Ekle
+                                            </button>
+                                        </div>
+                                        <p class="text-muted"><small>Bu bölümde seçili slider'a ait slaytları (resim, başlık, metin, link vb.) yönetebilirsiniz. Slaytların sırasını sürükle-bırak ile değiştirebilirsiniz (kavramsal). Bu arayüz kavramsal olup, gerçek slayt yönetimi backend ve JS entegrasyonu gerektirecektir.</small></p>
+                                        <ul class="list-group" id="slideListContainer">
+                                            <!-- Örnek Slayt Öğesi -->
+                                            <li class="list-group-item d-flex justify-content-between align-items-center slide-item" data-slide-id="101">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-grip-vertical me-3 text-muted" title="Sırala (Sürükle Bırak)"></i>
+                                                    <img src="https://via.placeholder.com/100x60.png/6c757d/fff?text=Slayt+1" alt="Slayt 1" class="me-3 rounded" style="width:100px; height:60px; object-fit:cover;">
+                                                    <div>
+                                                        <strong>Slayt Başlığı 1</strong><br>
+                                                        <small class="text-muted">Kısa açıklama metni burada yer alır.</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSlideModal" data-slide-id="101"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center slide-item" data-slide-id="102">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-grip-vertical me-3 text-muted" title="Sırala (Sürükle Bırak)"></i>
+                                                    <img src="https://via.placeholder.com/100x60.png/adb5bd/fff?text=Slayt+2" alt="Slayt 2" class="me-3 rounded" style="width:100px; height:60px; object-fit:cover;">
+                                                    <div>
+                                                        <strong>Farklı Bir Slayt Başlığı</strong><br>
+                                                        <small class="text-muted">Bu da başka bir slaytın açıklamasıdır.</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSlideModal" data-slide-id="102"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-danger" title="Sil"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </li>
+                                            <!-- Daha fazla slayt eklenebilir -->
+                                        </ul>
+                                        <p class="mt-3 text-center text-muted"><small>Slaytları sıralamak için sürükleyip bırakın (Bu özellik kavramsaldir).</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="button" class="btn btn-primary" id="saveSlideOrderBtn">Sıralamayı Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add/Edit Slide Modal -->
+                        <div class="modal fade" id="addSlideModal" tabindex="-1" aria-labelledby="addSlideModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addSlideModalLabel">Yeni Slayt Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addSlideForm">
+                                            <div class="mb-3">
+                                                <label for="addSlideImage" class="form-label">Slayt Resmi</label>
+                                                <input type="file" class="form-control" id="addSlideImage" accept="image/*">
+                                                <small class="text-muted">Önerilen boyut: 1920x700px. Ortam kütüphanesinden seçme seçeneği de eklenebilir.</small>
+                                                <img id="addSlideImagePreview" src="#" alt="Slayt Önizleme" class="img-fluid mt-2 rounded" style="max-height: 200px; display: none;">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSlideTitle" class="form-label">Slayt Başlığı (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="addSlideTitle" placeholder="Etkileyici bir başlık girin">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSlideText" class="form-label">Slayt Metni (Opsiyonel)</label>
+                                                <textarea class="form-control" id="addSlideText" rows="3" placeholder="Kısa ve etkili bir açıklama"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSlideLink" class="form-label">Slayt Linki (Opsiyonel)</label>
+                                                <input type="url" class="form-control" id="addSlideLink" placeholder="https://example.com/hedef-sayfa">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSlideLinkText" class="form-label">Link Buton Metni (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="addSlideLinkText" placeholder="Daha Fazla Bilgi">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addSlideForm" class="btn btn-primary">Slaytı Ekle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="editSlideModal" tabindex="-1" aria-labelledby="editSlideModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editSlideModalLabel">Slaytı Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editSlideForm">
+                                            <input type="hidden" id="editSlideIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editSlideImage" class="form-label">Slayt Resmi</label>
+                                                <input type="file" class="form-control" id="editSlideImage" accept="image/*">
+                                                <img id="editSlideImagePreview" src="https://via.placeholder.com/300x150.png/6c757d/fff?text=Mevcut+Resim" alt="Slayt Önizleme" class="img-fluid mt-2 rounded" style="max-height: 200px;">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSlideTitle" class="form-label">Slayt Başlığı (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="editSlideTitle">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSlideText" class="form-label">Slayt Metni (Opsiyonel)</label>
+                                                <textarea class="form-control" id="editSlideText" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSlideLink" class="form-label">Slayt Linki (Opsiyonel)</label>
+                                                <input type="url" class="form-control" id="editSlideLink">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSlideLinkText" class="form-label">Link Buton Metni (Opsiyonel)</label>
+                                                <input type="text" class="form-control" id="editSlideLinkText">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editSlideForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

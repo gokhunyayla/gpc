@@ -1,0 +1,58 @@
+                        <!-- FTP Yönetimi Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-ftp" role="tabpanel" aria-labelledby="sitedash-ftp-tab-link">
+                            <h4>FTP Dosya Yönetimi (Kavramsal)</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu arayüz, sitenizin dosyalarına FTP üzerinden erişmek ve yönetmek için kavramsal bir gösterimdir. Gerçek FTP işlemleri için backend entegrasyonu gereklidir.</small></p>
+                                    <div class="row mb-3">
+                                        <div class="col-md-8">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-text">Mevcut Dizin:</span>
+                                                <input type="text" class="form-control" value="/public_html/" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-upload me-1"></i>Dosya Yükle</button>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-folder-plus me-1"></i>Yeni Klasör</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" class="form-check-input"></th>
+                                                    <th>Dosya/Klasör Adı</th>
+                                                    <th>Boyut</th>
+                                                    <th>Tür</th>
+                                                    <th>Son Değişiklik</th>
+                                                    <th>İzinler</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="checkbox" class="form-check-input"></td>
+                                                    <td><i class="fas fa-folder text-warning me-2"></i> css</td>
+                                                    <td>-</td>
+                                                    <td>Klasör</td>
+                                                    <td>12 Mayıs 2025</td>
+                                                    <td>drwxr-xr-x</td>
+                                                    <td><a href="#" class="btn btn-sm btn-link p-0">Aç</a> <a href="#" class="btn btn-sm btn-link p-0">Sil</a> <a href="#" class="btn btn-sm btn-link p-0">Yeniden Adlandır</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" class="form-check-input"></td>
+                                                    <td><i class="fas fa-file-code text-info me-2"></i> index.html</td>
+                                                    <td>15 KB</td>
+                                                    <td>HTML Dosyası</td>
+                                                    <td>13 Mayıs 2025</td>
+                                                    <td>-rw-r--r--</td>
+                                                    <td><a href="#" class="btn btn-sm btn-link p-0">Düzenle</a> <a href="#" class="btn btn-sm btn-link p-0">Sil</a> <a href="#" class="btn btn-sm btn-link p-0">İndir</a></td>
+                                                </tr>
+                                                <!-- More files/folders -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p class="mt-3"><small><strong>Not:</strong> Dosya düzenleme, silme, yükleme gibi işlemler burada sadece arayüz olarak gösterilmiştir.</small></p>
+                                </div>
+                            </div>
+                        </div>

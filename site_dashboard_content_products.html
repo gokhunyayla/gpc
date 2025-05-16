@@ -1,0 +1,251 @@
+                        <!-- Ürünler Yönetim Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-products" role="tabpanel" aria-labelledby="sitedash-products-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Ürün Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                                    <i class="fas fa-plus me-2"></i>Yeni Ürün Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ürün Adı</th>
+                                                    <th>Kategori</th>
+                                                    <th>Fiyat</th>
+                                                    <th>Stok</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Örnek Ürün Alpha</td>
+                                                    <td>Elektronik</td>
+                                                    <td>299.99 TL</td>
+                                                    <td><span class="badge bg-success">50+</span></td>
+                                                    <td><span class="badge bg-success">Yayında</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editProductModal" data-product-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Taslak Yap"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Örnek Ürün Beta</td>
+                                                    <td>Giyim</td>
+                                                    <td>99.50 TL</td>
+                                                    <td><span class="badge bg-warning">10</span></td>
+                                                    <td><span class="badge bg-secondary">Taslak</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editProductModal" data-product-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Yayınla"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Örnek Ürün Gamma</td>
+                                                    <td>Ev Eşyası</td>
+                                                    <td>450.00 TL</td>
+                                                    <td><span class="badge bg-danger">Stokta Yok</span></td>
+                                                    <td><span class="badge bg-danger">Stok Tükendi</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editProductModal" data-product-id="3"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-info" title="Stoğa Gelince Haber Ver (Kavramsal)"><i class="fas fa-bell"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Product Modal -->
+                        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addProductModalLabel">Yeni Ürün Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addProductForm">
+                                            <div class="mb-3">
+                                                <label for="addProductName" class="form-label">Ürün Adı</label>
+                                                <input type="text" class="form-control" id="addProductName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addProductUrl" class="form-label">Ürün URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="addProductUrl" placeholder="otomatik-oluşturulur-veya-manuel">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addProductStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="addProductStatus">
+                                                        <option value="published" selected>Yayında</option>
+                                                        <option value="draft">Taslak</option>
+                                                        <option value="out_of_stock">Stok Tükendi</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addProductCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="addProductCategory">
+                                                        <option value="elektronik">Elektronik</option>
+                                                        <option value="giyim">Giyim</option>
+                                                        <option value="ev-esyasi">Ev Eşyası</option>
+                                                        <!-- Kategoriler dinamik olarak eklenebilir/yönetilebilir olmalı -->
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addProductPrice" class="form-label">Fiyat (TL)</label>
+                                                    <input type="number" step="0.01" class="form-control" id="addProductPrice" required>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="addProductStock" class="form-label">Stok Miktarı</label>
+                                                    <input type="number" class="form-control" id="addProductStock" value="0" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addProductSku" class="form-label">SKU (Stok Kodu)</label>
+                                                    <input type="text" class="form-control" id="addProductSku">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addProductTags" class="form-label">Etiketler</label>
+                                                    <input type="text" class="form-control" id="addProductTags" name="addProductTags" placeholder="etiket1, etiket2">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="addProductMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="addProductSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductDetailCkeditor" class="form-label">Detaylı Ürün Açıklaması</label>
+                                                <textarea class="form-control" id="addProductDetailCkeditor" name="addProductDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductMainImage" class="form-label">Ana Ürün Görseli</label>
+                                                <input class="form-control" type="file" id="addProductMainImage">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductGalleryImages" class="form-label">Ürün Galerisi Görselleri (Çoklu Seçim)</label>
+                                                <input class="form-control" type="file" id="addProductGalleryImages" multiple>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addProductAttributes" class="form-label">Ürün Özellikleri (JSON Formatında - Kavramsal)</label>
+                                                <textarea class="form-control" id="addProductAttributes" rows="3" placeholder='[{"name": "Renk", "value": "Kırmızı"}, {"name": "Boyut", "value": "XL"}]'></textarea>
+                                                <small class="form-text text-muted-medium">Örn: [{"name": "Renk", "value": "Kırmızı"}, {"name": "Boyut", "value": "XL"}]</small>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addProductForm" class="btn btn-primary">Ürünü Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Product Modal (Similar to Add Product Modal) -->
+                        <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editProductModalLabel">Ürünü Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editProductForm">
+                                            <input type="hidden" id="editProductIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editProductName" class="form-label">Ürün Adı</label>
+                                                <input type="text" class="form-control" id="editProductName" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProductUrl" class="form-label">Ürün URL (Slug)</label>
+                                                    <input type="text" class="form-control" id="editProductUrl">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProductStatus" class="form-label">Durum</label>
+                                                    <select class="form-select" id="editProductStatus">
+                                                        <option value="published">Yayında</option>
+                                                        <option value="draft">Taslak</option>
+                                                        <option value="out_of_stock">Stok Tükendi</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editProductCategory" class="form-label">Kategori</label>
+                                                    <select class="form-select" id="editProductCategory">
+                                                        <option value="elektronik">Elektronik</option>
+                                                        <option value="giyim">Giyim</option>
+                                                        <option value="ev-esyasi">Ev Eşyası</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editProductPrice" class="form-label">Fiyat (TL)</label>
+                                                    <input type="number" step="0.01" class="form-control" id="editProductPrice" required>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="editProductStock" class="form-label">Stok Miktarı</label>
+                                                    <input type="number" class="form-control" id="editProductStock" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProductSku" class="form-label">SKU (Stok Kodu)</label>
+                                                    <input type="text" class="form-control" id="editProductSku">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProductTags" class="form-label">Etiketler</label>
+                                                    <input type="text" class="form-control" id="editProductTags" name="editProductTags">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductMetaDesc" class="form-label">Meta Açıklaması (SEO)</label>
+                                                <textarea class="form-control" id="editProductMetaDesc" rows="2"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductSummary" class="form-label">Kısa Açıklama / Özet</label>
+                                                <textarea class="form-control" id="editProductSummary" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductDetailCkeditor" class="form-label">Detaylı Ürün Açıklaması</label>
+                                                <textarea class="form-control" id="editProductDetailCkeditor" name="editProductDetailCkeditor"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductMainImage" class="form-label">Ana Ürün Görseli</label>
+                                                <input class="form-control" type="file" id="editProductMainImage">
+                                                <small class="form-text text-muted-medium mt-1">Mevcut görsel: <span id="currentProductMainImagePlaceholder">yok</span>. Değiştirmek için yeni dosya seçin.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductGalleryImages" class="form-label">Ürün Galerisi Görselleri</label>
+                                                <input class="form-control" type="file" id="editProductGalleryImages" multiple>
+                                                <small class="form-text text-muted-medium mt-1">Mevcut galeri görselleri (kavramsal): <span id="currentProductGalleryPlaceholder">yok</span>. Yenilerini eklemek için dosya seçin.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProductAttributes" class="form-label">Ürün Özellikleri (JSON Formatında - Kavramsal)</label>
+                                                <textarea class="form-control" id="editProductAttributes" rows="3"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editProductForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

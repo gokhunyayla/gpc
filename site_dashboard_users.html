@@ -1,0 +1,188 @@
+                        <!-- Site Kullanıcıları Yönetimi Sekmesi -->
+                        <div class="tab-pane fade" id="sitedash-users" role="tabpanel" aria-labelledby="sitedash-users-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Site Kullanıcıları Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSiteUserModal">
+                                    <i class="fas fa-user-plus me-2"></i>Yeni Site Kullanıcısı Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölüm, bu siteye özel olarak kayıt olmuş veya eklenmiş kullanıcıları yönetmenizi sağlar. Bu arayüz kavramsal olup, gerçek kullanıcı yönetimi backend entegrasyonu gerektirecektir.</small></p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ad Soyad</th>
+                                                    <th>E-posta</th>
+                                                    <th>Rol</th>
+                                                    <th>Durum</th>
+                                                    <th>Son Giriş</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Ali Veli</td>
+                                                    <td>ali.veli@example.com</td>
+                                                    <td>Abone</td>
+                                                    <td><span class="badge bg-primary">Aktif</span></td>
+                                                    <td>12 Mayıs 2025, 14:30</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSiteUserModal" data-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Şifre Sıfırla"><i class="fas fa-key"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Engelle"><i class="fas fa-user-lock"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ayşe Yılmaz</td>
+                                                    <td>ayse.yilmaz@example.com</td>
+                                                    <td>Editör</td>
+                                                    <td><span class="badge bg-primary">Aktif</span></td>
+                                                    <td>14 Mayıs 2025, 09:15</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSiteUserModal" data-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Şifre Sıfırla"><i class="fas fa-key"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Engelle"><i class="fas fa-user-lock"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mehmet Kaya</td>
+                                                    <td>mehmet.kaya@example.com</td>
+                                                    <td>Yazar</td>
+                                                    <td><span class="badge bg-light text-dark">Engelli</span></td>
+                                                    <td>01 Nisan 2025, 11:00</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSiteUserModal" data-id="3"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil" disabled><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Şifre Sıfırla" disabled><i class="fas fa-key"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Engeli Kaldır"><i class="fas fa-user-check"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Site User Modal -->
+                        <div class="modal fade" id="addSiteUserModal" tabindex="-1" aria-labelledby="addSiteUserModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addSiteUserModalLabel">Yeni Site Kullanıcısı Ekle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addSiteUserForm">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSiteUserFirstName" class="form-label">Ad</label>
+                                                    <input type="text" class="form-control" id="addSiteUserFirstName" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSiteUserLastName" class="form-label">Soyad</label>
+                                                    <input type="text" class="form-control" id="addSiteUserLastName" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSiteUserEmail" class="form-label">E-posta Adresi</label>
+                                                <input type="email" class="form-control" id="addSiteUserEmail" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSiteUserPassword" class="form-label">Şifre</label>
+                                                    <input type="password" class="form-control" id="addSiteUserPassword" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="addSiteUserPasswordConfirm" class="form-label">Şifre Tekrar</label>
+                                                    <input type="password" class="form-control" id="addSiteUserPasswordConfirm" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addSiteUserRole" class="form-label">Kullanıcı Rolü</label>
+                                                <select class="form-select" id="addSiteUserRole" required>
+                                                    <option value="" disabled selected>Rol Seçin...</option>
+                                                    <option value="subscriber">Abone</option>
+                                                    <option value="contributor">Yazar</option>
+                                                    <option value="author">Editör Yardımcısı</option>
+                                                    <option value="editor">Editör</option>
+                                                    <option value="administrator">Yönetici (Site)</option> 
+                                                </select>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" type="checkbox" id="addSiteUserSendNotification">
+                                                <label class="form-check-label" for="addSiteUserSendNotification">
+                                                    Kullanıcıya yeni hesabı hakkında bildirim gönder.
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addSiteUserForm" class="btn btn-primary">Kullanıcıyı Ekle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Site User Modal (Similar to Add) -->
+                        <div class="modal fade" id="editSiteUserModal" tabindex="-1" aria-labelledby="editSiteUserModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editSiteUserModalLabel">Site Kullanıcısını Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editSiteUserForm">
+                                            <input type="hidden" id="editSiteUserIdHidden">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSiteUserFirstName" class="form-label">Ad</label>
+                                                    <input type="text" class="form-control" id="editSiteUserFirstName" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSiteUserLastName" class="form-label">Soyad</label>
+                                                    <input type="text" class="form-control" id="editSiteUserLastName" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSiteUserEmail" class="form-label">E-posta Adresi</label>
+                                                <input type="email" class="form-control" id="editSiteUserEmail" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editSiteUserRole" class="form-label">Kullanıcı Rolü</label>
+                                                <select class="form-select" id="editSiteUserRole" required>
+                                                    <option value="subscriber">Abone</option>
+                                                    <option value="contributor">Yazar</option>
+                                                    <option value="author">Editör Yardımcısı</option>
+                                                    <option value="editor">Editör</option>
+                                                    <option value="administrator">Yönetici (Site)</option> 
+                                                </select>
+                                            </div>
+                                            <hr>
+                                            <p class="text-muted"><small>Şifreyi değiştirmek istemiyorsanız aşağıdaki alanları boş bırakın.</small></p>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSiteUserPassword" class="form-label">Yeni Şifre</label>
+                                                    <input type="password" class="form-control" id="editSiteUserPassword">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editSiteUserPasswordConfirm" class="form-label">Yeni Şifre Tekrar</label>
+                                                    <input type="password" class="form-control" id="editSiteUserPasswordConfirm">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editSiteUserForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

@@ -1,0 +1,185 @@
+                        <!-- Genel Form Yönetimi Sekmesi (Site İçi Kullanım İçin) -->
+                        <div class="tab-pane fade" id="sitedash-site-forms" role="tabpanel" aria-labelledby="sitedash-site-forms-tab-link">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Site Formları Yönetimi</h4>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSiteFormModal">
+                                    <i class="fas fa-plus-square me-2"></i>Yeni Form Oluştur/Ekle
+                                </button>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-muted"><small>Bu bölümde sitenizde kullanılacak genel amaçlı formları (iletişim formu dışında, örn. başvuru formu, anket vb.) yönetebilirsiniz. Oluşturulan formlar sayfalara eklenebilir. Kullanıcı "önceden tanımlı formlar ile ilerlenebilir, burada sadece label'ları değiştirebilir" dediği için arayüz bu yönde olacaktır. Bu arayüz kavramsal olup, gerçek form oluşturma ve veri işleme backend entegrasyonu gerektirecektir.</small></p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Form Adı</th>
+                                                    <th>Kısa Kod (Örnek)</th>
+                                                    <th>Gönderi Sayısı</th>
+                                                    <th>Oluşturma Tarihi</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Etkinlik Kayıt Formu</td>
+                                                    <td><code>[site_form id="1"]</code></td>
+                                                    <td>125</td>
+                                                    <td>10 Nisan 2025</td>
+                                                    <td><span class="badge bg-primary">Aktif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSiteFormModal" data-id="1"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Alanları Yönet"><i class="fas fa-tasks"></i></button> <!-- Label düzenleme için -->
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-warning" title="Pasif Yap"><i class="fas fa-toggle-off"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Geri Bildirim Formu</td>
+                                                    <td><code>[site_form id="2"]</code></td>
+                                                    <td>78</td>
+                                                    <td>05 Mart 2025</td>
+                                                    <td><span class="badge bg-light text-dark">Pasif</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark me-1" title="Düzenle" data-bs-toggle="modal" data-bs-target="#editSiteFormModal" data-id="2"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-sm btn-outline-secondary me-1" title="Alanları Yönet"><i class="fas fa-tasks"></i></button>
+                                                        <button class="btn btn-sm btn-danger me-1" title="Sil"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-sm btn-success" title="Aktif Yap"><i class="fas fa-toggle-on"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add/Edit Site Form Modal (Temel Ayarlar) -->
+                        <div class="modal fade" id="addSiteFormModal" tabindex="-1" aria-labelledby="addSiteFormModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addSiteFormModalLabel">Yeni Form Oluştur</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addSiteFormForm">
+                                            <div class="mb-3">
+                                                <label for="addFormName" class="form-label">Form Adı</label>
+                                                <input type="text" class="form-control" id="addFormName" placeholder="Örn: Etkinlik Başvuru Formu" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="addFormTemplate" class="form-label">Form Şablonu (Ön Tanımlı Alan Seti)</label>
+                                                <select class="form-select" id="addFormTemplate">
+                                                    <option selected disabled value="">Bir şablon seçin...</option>
+                                                    <option value="contact_basic">Temel İletişim (Ad, E-posta, Mesaj)</option>
+                                                    <option value="application_detailed">Detaylı Başvuru (Ad, E-posta, Telefon, CV Yükleme, Ek Notlar)</option>
+                                                    <option value="feedback_simple">Basit Geri Bildirim (Değerlendirme, Yorum)</option>
+                                                    <option value="custom">Boş Şablon (Alanları kendiniz eklersiniz - Kavramsal)</option>
+                                                </select>
+                                                <small class="text-muted">Seçilen şablonun alan etiketlerini daha sonra "Alanları Yönet" kısmından düzenleyebilirsiniz.</small>
+                                            </div>
+                                            <p class="text-muted"><small>Form alanlarının (label) düzenlenmesi ve formun sayfalara nasıl ekleneceği (kısa kod vb.) gibi detaylar, form oluşturulduktan sonra ilgili formun "Alanları Yönet" bölümünden yapılacaktır.</small></p>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="addSiteFormForm" class="btn btn-primary">Formu Oluştur ve Alanları Yönet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Edit Site Form Modal (Similar to Add but for existing form name etc) -->
+                        <div class="modal fade" id="editSiteFormModal" tabindex="-1" aria-labelledby="editSiteFormModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editSiteFormModalLabel">Formu Düzenle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editSiteFormForm">
+                                            <input type="hidden" id="editFormIdHidden">
+                                            <div class="mb-3">
+                                                <label for="editFormName" class="form-label">Form Adı</label>
+                                                <input type="text" class="form-control" id="editFormName" required>
+                                            </div>
+                                            <!-- Diğer temel form ayarları buraya eklenebilir (örn: başarı mesajı, yönlendirme URLsi) -->
+                                            <p class="text-muted"><small>Form alanlarının (label) düzenlenmesi için lütfen listedeki "Alanları Yönet" butonunu kullanın.</small></p>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="editSiteFormForm" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manage Form Fields Modal (Conceptual for Label Editing) -->
+                        <div class="modal fade" id="manageFormFieldsModal" tabindex="-1" aria-labelledby="manageFormFieldsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="manageFormFieldsModalLabel">Form Alan Etiketlerini Yönet (Form Adı: <span id="managingFormName"></span>)</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="text-muted"><small>Bu arayüz, seçilen forma ait önceden tanımlanmış alanların etiketlerini (label) değiştirmenizi sağlar. Alan ekleme/çıkarma veya tipini değiştirme bu arayüzde desteklenmemektedir (kullanıcı isteği doğrultusunda). Gerçek implementasyon backend ve JS ile daha dinamik hale getirilebilir.</small></p>
+                                        <form id="manageFormFieldsForm">
+                                            <!-- Örnek Alanlar - Dinamik olarak JS ile doldurulacak -->
+                                            <div class="row mb-3 border-bottom pb-2">
+                                                <div class="col-md-4">
+                                                    <label class="form-label fw-bold">Orijinal Alan Adı (Değiştirilemez)</label>
+                                                    <input type="text" class="form-control-plaintext" value="first_name" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldLabel_firstName" class="form-label">Görünen Etiket (Label)</label>
+                                                    <input type="text" class="form-control" id="fieldLabel_firstName" value="Adınız">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldPlaceholder_firstName" class="form-label">Placeholder (Varsa)</label>
+                                                    <input type="text" class="form-control" id="fieldPlaceholder_firstName" value="Lütfen adınızı girin">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3 border-bottom pb-2">
+                                                <div class="col-md-4">
+                                                    <label class="form-label fw-bold">Orijinal Alan Adı (Değiştirilemez)</label>
+                                                    <input type="text" class="form-control-plaintext" value="email_address" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldLabel_emailAddress" class="form-label">Görünen Etiket (Label)</label>
+                                                    <input type="text" class="form-control" id="fieldLabel_emailAddress" value="E-posta Adresiniz">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldPlaceholder_emailAddress" class="form-label">Placeholder (Varsa)</label>
+                                                    <input type="text" class="form-control" id="fieldPlaceholder_emailAddress" value="ornek@example.com">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3 border-bottom pb-2">
+                                                <div class="col-md-4">
+                                                    <label class="form-label fw-bold">Orijinal Alan Adı (Değiştirilemez)</label>
+                                                    <input type="text" class="form-control-plaintext" value="message_body" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldLabel_messageBody" class="form-label">Görünen Etiket (Label)</label>
+                                                    <input type="text" class="form-control" id="fieldLabel_messageBody" value="Mesajınız">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="fieldPlaceholder_messageBody" class="form-label">Placeholder (Varsa)</label>
+                                                    <textarea class="form-control" id="fieldPlaceholder_messageBody" rows="2">Mesajınızı buraya yazın...</textarea>
+                                                </div>
+                                            </div>
+                                            <!-- Diğer alanlar buraya dinamik olarak eklenecek -->
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                        <button type="submit" form="manageFormFieldsForm" class="btn btn-primary">Etiket Değişikliklerini Kaydet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
